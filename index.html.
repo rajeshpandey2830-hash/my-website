@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Perfect Match</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fff5f7;
+      color: #333;
+    }
+
+    header {
+      background: #c2185b;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin-bottom: 8px;
+    }
+
+    nav {
+      background: #880e4f;
+      padding: 12px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #f8bbd0, #fce4ec);
+    }
+
+    .hero h2 {
+      font-size: 32px;
+      color: #880e4f;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      margin-bottom: 25px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #c2185b;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .search {
+      background: white;
+      padding: 25px;
+      margin: 25px auto;
+      max-width: 700px;
+      border-radius: 15px;
+      box-shadow: 0 3px 12px #ddd;
+    }
+
+    .search h2 {
+      text-align: center;
+      color: #c2185b;
+      margin-bottom: 20px;
+    }
+
+    .search input,
+    .search select {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .profiles {
+      padding: 30px 20px;
+    }
+
+    .profiles h2 {
+      text-align: center;
+      color: #880e4f;
+      margin-bottom: 25px;
+    }
+
+    .profile-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .profile {
+      background: white;
+      width: 280px;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 3px 10px #ddd;
+    }
+
+    .profile .photo {
+      width: 100px;
+      height: 100px;
+      margin: auto;
+      border-radius: 50%;
+      background: #f8bbd0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+    }
+
+    .profile h3 {
+      color: #c2185b;
+      margin: 15px 0 8px;
+    }
+
+    .profile p {
+      margin: 6px;
+    }
+
+    footer {
+      background: #880e4f;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 25px;
+      }
+
+      nav a {
+        margin: 0 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>❤️ Perfect Match</h1>
+    <p>Find Your Perfect Life Partner</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#search">Search</a>
+    <a href="#profiles">Profiles</a>
+  </nav>
+
+  <section class="hero" id="home">
+    <h2>Find Someone Special</h2>
+    <p>Connect with people and discover meaningful relationships.</p>
+    <a href="#search" class="button">Find a Match</a>
+  </section>
+
+  <section class="search" id="search">
+    <h2>🔎 Search Profiles</h2>
+
+    <input type="text" id="name" placeholder="Enter name">
+
+    <select id="gender">
+      <option value="">Select Gender</option>
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+
+    <select id="age">
+      <option value="">Select Age</option>
+      <option>18-25</option>
+      <option>26-35</option>
+      <option>36-45</option>
+      <option>46+</option>
+    </select>
+
+    <input type="text" id="city" placeholder="Enter city">
+
+    <button class="button" onclick="searchProfile()">
+      Search
+    </button>
+
+    <p id="result" style="margin-top:15px;text-align:center;"></p>
+  </section>
+
+  <section class="profiles" id="profiles">
+    <h2>💖 Featured Profiles</h2>
+
+    <div class="profile-container">
+
+      <div class="profile">
+        <div class="photo">👨</div>
+        <h3>Rahul</h3>
+        <p>Age: 28</p>
+        <p>City: Delhi</p>
+        <p>Profession: Engineer</p>
+        <button class="button" onclick="showMessage('Rahul')">
+          View Profile
+        </button>
+      </div>
+
+      <div class="profile">
+        <div class="photo">👩</div>
+        <h3>Priya</h3>
+        <p>Age: 26</p>
+        <p>City: Lucknow</p>
+        <p>Profession: Teacher</p>
+        <button class="button" onclick="showMessage('Priya')">
+          View Profile
+        </button>
+      </div>
+
+      <div class="profile">
+        <div class="photo">👨</div>
+        <h3>Amit</h3>
+        <p>Age: 30</p>
+        <p>City: Mumbai</p>
+        <p>Profession: Business</p>
+        <button class="button" onclick="showMessage('Amit')">
+          View Profile
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Perfect Match</p>
+    <p>Made with HTML, CSS & JavaScript</p>
+  </footer>
+
+  <script>
+    function searchProfile() {
+      let name = document.getElementById("name").value;
+      let city = document.getElementById("city").value;
+
+      if (name === "" && city === "") {
+        document.getElementById("result").innerHTML =
+          "Please enter a name or city.";
+      } else {
+        document.getElementById("result").innerHTML =
+          "Searching for profiles...";
+      }
+    }
+
+    function showMessage(name) {
+      alert(
+        "You selected " + name +
+        "'s profile. Full profile features can be added later."
+      );
+    }
+  </script>
+
+</body>
+</html>  
